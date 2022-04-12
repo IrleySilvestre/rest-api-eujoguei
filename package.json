@@ -1,0 +1,26 @@
+{
+  "name": "rest-api-eujoguei",
+  "version": "1.0.0",
+  "description": "API to register any play game",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IrleySilvestre/rest-api-eujoguei.git"
+  },
+  "author": "Irley J. Silvestre",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IrleySilvestre/rest-api-eujoguei/issues"
+  },
+  "homepage": "https://github.com/IrleySilvestre/rest-api-eujoguei#readme",
+  "dependencies": {
+    "consign": "^0.1.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "moment": "^2.29.2",
+    "mysql2": "^2.3.3"
+  }
+}
