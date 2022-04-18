@@ -48,27 +48,17 @@ exports.add = (req, res) => {
       const created = moment().format("YYYY-MM-DD HH:MM:ss");
       const newUser = { created, ...req.body };
       const user = new User(newUser);
-
-      User.findByEmail(email, (err, data) => {
-        if (err) {
-          res.status(500);
-          res.send({ messag: err.message });
-        } else {
-          if (data.res.length) {
-            User.add(user, (err, data) => {
-              if (err) {
-                res.status(500).send({
-                  message: err.message || " Error while creating User",
-                });
-              } else {
-                res.status(200).json(data);
-              }
+      if (data.res.length) {
+        User.add(user, (err, data) => {
+          if (err) {
+            res.status(500).send({
+              message: err.message || " Error while creating User",
             });
           } else {
-            res.send({ msg: "email ja cadastrado" });
+            res.status(200).json(data);
           }
-        }
-      });
+        });
+      }
     }
   }
 };
