@@ -63,9 +63,6 @@ exports.add = (req, res) => {
   }
 };
 
-exports.listById = (req, res) => {
-  res.send("Listar por id");
-};
 exports.listAll = (req, res) => {
   User.listAll((err, data) => {
     if (err) {
@@ -76,6 +73,11 @@ exports.listAll = (req, res) => {
     }
   });
 };
+
+exports.listById = (req, res) => {
+  res.send("Listar por id");
+};
+
 exports.remove = (req, res) => {
   res.send("Remover");
 };
