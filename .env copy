@@ -1,0 +1,8 @@
+module.exports={
+dbConfig: {
+host: 'localhost',
+user: 'admin',
+database: 'eu-paguei',
+password: '12345678'
+}
+}
