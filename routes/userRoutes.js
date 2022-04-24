@@ -1,11 +1,11 @@
 module.exports = (app) => {
-    const userControler = require("../controllers/userControler");
-    const router = require("express").Router();
+  const userControler = require("../controllers/userControler");
+  const router = require("express").Router();
 
-    router
-        .get("/", userControler.listAll)
-        .post("/", userControler.add)
-        .delete(":id", userControler.remove);
+  router
+    .get("/", userControler.listAll)
+    .post("/", userControler.add)
+    .delete("/:id", userControler.remove);
 
-    app.use("/user", router);
+  app.use("/user", router);
 };

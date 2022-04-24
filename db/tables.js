@@ -1,21 +1,21 @@
 class Tables {
-    initTables(connection) {
-        this.connection = connection;
-        this.createSchema();
-        this.createTableUsers();
-    }
-    createSchema() {
-        this.connection.query("CREATE SCHEMA `eu-paguei`", (err) => {
-            if (err) {
-                console.log(err);
-            } else {
-                console.log("data base criada");
-            }
-        });
-    }
+  initTables(connection) {
+    this.connection = connection;
+    // this.createSchema();
+    this.createTableUsers();
+  }
+  createSchema() {
+    this.connection.query("CREATE SCHEMA `eu-paguei`", (err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("data base criada");
+      }
+    });
+  }
 
-    createTableUsers() {
-        const sql = `
+  createTableUsers() {
+    const sql = `
         CREATE TABLE IF NOT EXISTS users (
             id int NOT NULL AUTO_INCREMENT,
             name varchar(45) NOT NULL,
@@ -26,14 +26,14 @@ class Tables {
             UNIQUE KEY email_UNIQUE (email));
 
         `;
-        this.connection.query(sql, (err) => {
-            if (err) {
-                console.log(err);
-            } else {
-                console.log("Table users checked");
-            }
-        });
-    }
+    this.connection.query(sql, (err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("Table users checked");
+      }
+    });
+  }
 }
 
 module.exports = new Tables();

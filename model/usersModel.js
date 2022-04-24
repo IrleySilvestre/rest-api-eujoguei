@@ -43,6 +43,17 @@ class User {
       }
     });
   }
+  static remove(id, result) {
+    const sql = `DELETE  FROM users WHERE id=?`;
+    connection.query(sql, id, (err, res) => {
+      if (err) {
+        result(err, null);
+        return;
+      } else {
+        result(null, { res });
+      }
+    });
+  }
 }
 
 module.exports = User;
