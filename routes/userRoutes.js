@@ -5,7 +5,8 @@ module.exports = (app) => {
   router
     .get("/", userControler.listAll)
     .post("/", userControler.add)
-    .delete("/:id", userControler.remove);
+    .delete("/:id", userControler.remove)
+    .patch("/:id", userControler.update);
 
   app.use("/user", router);
 };

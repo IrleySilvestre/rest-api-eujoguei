@@ -87,3 +87,15 @@ exports.remove = (req, res) => {
     }
   });
 };
+exports.update = (req, res) => {
+  const user = req.body;
+  const { id } = req.params;
+  User.update(id, user, (err, data) => {
+    if (err) {
+      res.status(500);
+      res.send({ messag: err.message });
+    } else {
+      res.status(200).json(data);
+    }
+  });
+};

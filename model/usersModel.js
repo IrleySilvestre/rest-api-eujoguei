@@ -54,6 +54,18 @@ class User {
       }
     });
   }
+  static update(id, user, result) {
+    const sql = `UPDATE users SET ? WHERE id = ?`;
+
+    connection.query(sql, [user, id], (err, res) => {
+      if (err) {
+        result(err, null);
+        return;
+      } else {
+        result(null, { res });
+      }
+    });
+  }
 }
 
 module.exports = User;
