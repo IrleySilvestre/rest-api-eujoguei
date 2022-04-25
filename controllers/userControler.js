@@ -64,8 +64,7 @@ exports.add = (req, res) => {
 exports.listAll = (req, res) => {
   User.listAll((err, data) => {
     if (err) {
-      res.status(500);
-      res.send({ messag: err.message });
+      res.status(500).send({ messag: err.message });
     } else {
       res.status(200).json(data);
     }
@@ -73,15 +72,21 @@ exports.listAll = (req, res) => {
 };
 
 exports.listById = (req, res) => {
-  res.send("Listar por id");
+  const { id } = req.params;
+  User.listById(id, (err, data) => {
+    if (err) {
+      res.status(500).send({ messag: err.message });
+    } else {
+      res.status(200).json(data);
+    }
+  });
 };
 
 exports.remove = (req, res) => {
   const { id } = req.params;
   User.remove(id, (err, data) => {
     if (err) {
-      res.status(500);
-      res.send({ messag: err.message });
+      res.status(500).send({ messag: err.message });
     } else {
       res.status(200).json(data);
     }

@@ -31,6 +31,17 @@ class User {
       }
     });
   }
+  static listById(id, result) {
+    const sql = `SELECT * FROM users WHERE id=?`;
+    connection.query(sql, id, (err, res) => {
+      if (err) {
+        result(err, null);
+        return;
+      } else {
+        result(null, { res });
+      }
+    });
+  }
 
   static listAll(result) {
     const sql = "SELECT * FROM  users";
