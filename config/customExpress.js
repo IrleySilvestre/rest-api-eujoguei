@@ -3,39 +3,55 @@ const cors = require("cors");
 
 const consign = require("consign");
 
-var corsOptions = {
-    origin: "*",
-    optionsSuccessStatus: 200,
-    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
-};
-
 module.exports = () => {
-    const app = express();
+  const app = express();
 
-    // app.use((req, res, next) => {
-    //   res.header("Access-Control-Allow-Origin", "*");
-    //   res.header(
-    //     "Access-Control-Allow-Methods",
-    //     "GET,POS,DELETE,UPDATE,PUT,PATCH"
-    //   );
-    //   res.header("Access-Control-Allow-Headers", [
-    //     "Content-Type",
-    //     "Authorization",
-    //   ]);
+  const corsOptions = {
+    origin: "*",
+    methods: ["GET", "PUT", "POST", "PATCH", "DELETE"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Access",
+      "Origin",
+      "X-Requested-with",
+    ],
+    credentials: true,
+    optionsSuccessStatus: 204,
+  };
 
-    //   next();
-    // });
-    app.use(cors(corsOptions));
+  app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", [
+      "GET",
+      "POST",
+      "DELETE",
+      "UPDATE",
+      "PUT",
+      "PATCH",
+    ]);
+    res.header("Access-Control-Allow-Headers", [
+      "Content-Type",
+      "Authorization",
+      "Access",
+      "Origin",
+      "X-Requested-with",
+    ]);
+    res.header("Access-Control-Allow-Credentials", true);
 
-    app.use(express.json());
+    next();
+  });
+  app.use(cors());
 
-    app.use(express.urlencoded({ extended: true }));
+  app.use(express.json());
 
-    consign().include("routes").into(app);
+  app.use(express.urlencoded({ extended: true }));
 
-    app.get("/", (req, res) => {
-        res.json({ message: "Welcome to eujoguei" });
-    });
+  consign().include("routes").into(app);
 
-    return app;
+  app.get("/", (req, res) => {
+    res.json({ message: "Welcome to eujoguei" });
+  });
+
+  return app;
 };

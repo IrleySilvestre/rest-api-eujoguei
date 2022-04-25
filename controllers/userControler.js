@@ -42,22 +42,30 @@ exports.add = (req, res) => {
   if (errors.length) {
     res.status(400).json(errors);
   } else {
-    if (req.body.id) {
-      res.send("User com id");
-    } else {
-      const created = moment().format("YYYY-MM-DD HH:MM:ss");
-      const newUser = { created, ...req.body };
-      const user = new User(newUser);
-      User.add(user, (err, data) => {
-        if (err) {
-          res.status(500).send({
-            message: err.message || " Error while creating User",
+    const email = req.body.email;
+
+    User.findByEmail(email, (err, data) => {
+      if (err) {
+        res.status(500).send({ messag: err.message });
+      } else {
+        const email = data.res;
+        if (!email[0]) {
+          const created = moment().format("YYYY-MM-DD HH:MM:ss");
+          const newUser = { created, ...req.body };
+          User.add(newUser, (err, data) => {
+            if (err) {
+              res.status(500).send({
+                message: err.message || " Error while creating User",
+              });
+            } else {
+              res.status(200).json(data);
+            }
           });
         } else {
-          res.status(200).json(data);
+          res.status(200).json({ message: "Email já esta sendo utilizado" });
         }
-      });
-    }
+      }
+    });
   }
 };
 
