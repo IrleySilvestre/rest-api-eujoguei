@@ -7,7 +7,11 @@ module.exports = () => {
   const app = express();
 
   const corsOptions = {
-    origin: "*",
+    origin: [
+      "http://localhost:8081",
+      "http://127.0.0.1:8081",
+      "http://192.168.20.143:8081",
+    ],
     methods: ["GET", "PUT", "POST", "PATCH", "DELETE"],
     allowedHeaders: [
       "Content-Type",
@@ -20,28 +24,34 @@ module.exports = () => {
     optionsSuccessStatus: 204,
   };
 
-  app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", [
-      "GET",
-      "POST",
-      "DELETE",
-      "UPDATE",
-      "PUT",
-      "PATCH",
-    ]);
-    res.header("Access-Control-Allow-Headers", [
-      "Content-Type",
-      "Authorization",
-      "Access",
-      "Origin",
-      "X-Requested-with",
-    ]);
-    res.header("Access-Control-Allow-Credentials", true);
+  //   app.use((req, res, next) => {
+  //     res.header("Access-Control-Allow-Origin", [
+  //       "Content-Type",
+  //       "Authorization",
+  //       "Access",
+  //       "Origin",
+  //       "X-Requested-with",
+  //     ]);
+  //     res.header("Access-Control-Allow-Methods", [
+  //       "GET",
+  //       "POST",
+  //       "DELETE",
+  //       "UPDATE",
+  //       "PUT",
+  //       "PATCH",
+  //     ]);
+  //     res.header("Access-Control-Allow-Headers", [
+  //       "Content-Type",
+  //       "Authorization",
+  //       "Access",
+  //       "Origin",
+  //       "X-Requested-with",
+  //     ]);
+  //     res.header("Access-Control-Allow-Credentials", true);
 
-    next();
-  });
-  app.use(cors());
+  //     next();
+  //   });
+  app.use(cors(corsOptions));
 
   app.use(express.json());
 
