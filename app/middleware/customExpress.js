@@ -57,7 +57,7 @@ module.exports = () => {
 
   app.use(express.urlencoded({ extended: true }));
 
-  consign().include("routes").into(app);
+  consign().include("app/routes").into(app);
 
   app.get("/", (req, res) => {
     res.json({ message: "Welcome to eujoguei" });
