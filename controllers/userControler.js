@@ -62,7 +62,7 @@ exports.add = (req, res) => {
             }
           });
         } else {
-          res.status(200).json({ message: "Email já esta sendo utilizado" });
+          res.status(500).json({ message: "Email já esta sendo utilizado" });
         }
       }
     });
