@@ -1,10 +1,16 @@
 const User = require("../model/usersModel");
 const moment = require("moment");
+const bcrypt = require("bcrypt");
 
 function isEmail(email) {
   let regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
   return regex.test(email);
 }
+
+const encryptPassoword = (password) => {
+  const salt = bcrypt.genSaltSync(10);
+  return bcrypt.hashSync(password, salt);
+};
 
 exports.add = (req, res) => {
   const name = req.body.name
@@ -52,6 +58,9 @@ exports.add = (req, res) => {
         if (!email[0]) {
           const created = moment().format("YYYY-MM-DD HH:MM:ss");
           const newUser = { created, ...req.body };
+
+          newUser.password = encryptPassoword(newUser.password);
+
           User.add(newUser, (err, data) => {
             if (err) {
               res.status(500).send({

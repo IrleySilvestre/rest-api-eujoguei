@@ -1,9 +1,9 @@
-const customExpress = require("./config/customExpress");
+const customExpress = require("./app/middleware/customExpress");
 
 const PORT = process.env.PORT || 3000;
 
-const connection = require("./db/connection");
-const tables = require("./db/tables");
+const connection = require("./app/db/connection");
+const tables = require("./app/db/tables");
 
 const app = customExpress();
 

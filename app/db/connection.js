@@ -1,5 +1,5 @@
 const mysql = require("mysql2");
-const { dbConfig } = require("../.env");
+const { dbConfig } = require("../../.env");
 
 const connection = mysql.createConnection(dbConfig);
 
