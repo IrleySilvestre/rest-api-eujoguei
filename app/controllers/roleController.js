@@ -11,3 +11,13 @@ exports.add = (req, res)=>{
         }
     })
 }
+
+exports.listAll = (req, res)=>{
+    Roles.listAll((err, data)=>{
+        if (err) {
+            res.server(500).send({message: err.message})
+        } else {
+            res.status(200).json(data)
+        }
+    })
+}

@@ -16,6 +16,18 @@ class Roles {
             }
         })
     }
+
+    static listAll(result){
+        const sql =`SELECT * FROM roles`
+        connection.query(sql, (err, res)=>{
+            if (err) {
+                result(err, null)
+                return
+            } else {
+                result(null, {res})
+            }
+        })
+    }
 }
 
 module.exports = Roles

@@ -4,6 +4,9 @@ module.exports=(app)=>{
 
     router
     .post('/', roleController.add)
+    .get('/', roleController.listAll)
 
     app.use("/role", router)
+    
+    
 }
