@@ -57,11 +57,12 @@ module.exports = () => {
 
   app.use(express.urlencoded({ extended: true }));
 
-  consign().include("app/routes").into(app);
-
+  //Rota default //
   app.get("/", (req, res) => {
     res.json({ message: "Welcome to eujoguei" });
   });
-
+  
+  consign().include("app/routes").into(app);
+  
   return app;
 };

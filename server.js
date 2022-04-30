@@ -1,11 +1,11 @@
-const customExpress = require("./app/middleware/customExpress");
+const appConfig = require("./app/config/app.config");
 
 const PORT = process.env.PORT || 3000;
 
 const connection = require("./app/db/connection");
 const tables = require("./app/db/tables");
 
-const app = customExpress();
+const app = appConfig();
 
 connection.connect((err) => {
   if (err) {
