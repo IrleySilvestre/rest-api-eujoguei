@@ -5,6 +5,7 @@ class User {
     this.email = user.email;
     this.password = user.password;
     this.created = user.created;
+    this.fk_roles = user.fk_roles
   }
   static add(newUser, result) {
     const sql = "INSERT INTO users SET ?";
