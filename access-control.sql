@@ -171,3 +171,30 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+INSERT INTO `functionality` (`name`, `description`) VALUES ('Controle de Usuarios', 'Gerenica cadastro de usuarios do sistema');
+INSERT INTO `functionality` (`name`, `description`) VALUES ('Controle de Grupos de Acesso', 'Gerencia cadastro de grupos de acesso do sistema');
+INSERT INTO `functionality` (`name`, `description`) VALUES ('Controle de permissoes', 'Gerenica permicoes de acesso');
+
+INSERT INTO `actions` (`description`) VALUES ('Listar');
+INSERT INTO `actions` (`description`) VALUES ('Pesquisar');
+INSERT INTO `actions` (`description`) VALUES ('Adicionar');
+INSERT INTO `actions` (`description`) VALUES ('Atualizar');
+INSERT INTO `actions` (`description`) VALUES ('Excluir');
+
+INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('1', '1');
+INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('1', '2');
+INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('1', '3');
+INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('1', '4');
+INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('1', '5');
+INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('2', '1');
+INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('2', '2');
+INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('2', '3');
+INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('2', '4');
+INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('2', '5');
+INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('3', '1');
+INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('3', '2');
+INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('3', '3');
+INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('3', '4');
+INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('3', '5');

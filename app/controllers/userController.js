@@ -88,9 +88,9 @@ exports.listAll = (req, res) => {
   });
 };
 
-exports.listById = (req, res) => {
+exports.findById = (req, res) => {
   const { id } = req.params;
-  User.listById(id, (err, data) => {
+  User.findById(id, (err, data) => {
     if (err) {
       res.status(500).send({ messag: err.message });
     } else {

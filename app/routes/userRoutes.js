@@ -4,7 +4,7 @@ module.exports = (app) => {
 
   router
     .get("/", userControler.listAll)
-    .get("/:id", userControler.listById)
+    .get("/:id", userControler.findById)
     .post("/", userControler.add)
     .delete("/:id", userControler.remove)
     .patch("/:id", userControler.update);

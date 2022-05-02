@@ -28,6 +28,42 @@ class Roles {
             }
         })
     }
+
+    static findById(id, result){
+        const sql = `SELECT * FROM roles WHERE id=?`
+        connection.query(sql, id, (err, res)=>{
+            if (err) {
+                result(err, null)
+                return
+            } else {
+                result(null, {res})
+            }
+        })
+    }
+
+    static remove(id, result){
+        const sql = `DELETE FROM roles WHERE id=?`
+        connection.query(sql, id,(err, res)=>{
+            if (err) {
+                result(err, null)
+            } else {
+                result(null, {res})
+            }
+        })
+    }
+
+    static update(id, role, result) {
+        const sql = `UPDATE roles SET ? WHERE id = ?`;
+    
+        connection.query(sql, [role, id], (err, res) => {
+          if (err) {
+            result(err, null);
+            return;
+          } else {
+            result(null, { res });
+          }
+        });
+      }
 }
 
 module.exports = Roles

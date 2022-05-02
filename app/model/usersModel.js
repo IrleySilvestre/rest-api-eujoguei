@@ -32,7 +32,7 @@ class User {
       }
     });
   }
-  static listById(id, result) {
+  static findById(id, result) {
     const sql = `SELECT * FROM users WHERE id=?`;
     connection.query(sql, id, (err, res) => {
       if (err) {
