@@ -3,13 +3,12 @@ class Tables {
     this.connection = connection;
     this.createTableRoles();
     this.createTableUsers();
-    this.createTableFunctionality()
-    this.createTableActions()
-    this.createTableRolesHasFunctionality()
-    this.createTableFunctionalityHasActions()
-    this.createTablePerfil()
-    this.createTableAdrress()
-
+    this.createTableFunctionality();
+    this.createTableActions();
+    this.createTableRolesHasFunctionality();
+    this.createTableFunctionalityHasActions();
+    this.createTablePerfil();
+    this.createTableAdrress();
   }
 
   createTableRoles() {
@@ -57,8 +56,7 @@ class Tables {
     });
   }
 
-
-  createTableFunctionality(){
+  createTableFunctionality() {
     const sql = `
     CREATE TABLE IF NOT EXISTS functionality (
     id INT NOT NULL AUTO_INCREMENT,
@@ -75,16 +73,15 @@ class Tables {
         console.log("Table functionality checked");
       }
     });
-
   }
 
-  createTableActions(){
+  createTableActions() {
     const sql = `
     CREATE TABLE IF NOT EXISTS actions (
       id INT NOT NULL AUTO_INCREMENT,
-      description VARCHAR(45) NOT NULL,
+      name VARCHAR(45) NOT NULL,
       PRIMARY KEY (id),
-      UNIQUE INDEX description_UNIQUE (description));
+      UNIQUE INDEX name_UNIQUE (name));
     `;
     this.connection.query(sql, (err) => {
       if (err) {
@@ -93,10 +90,9 @@ class Tables {
         console.log("Table Actions checked");
       }
     });
-
   }
 
-  createTableRolesHasFunctionality(){
+  createTableRolesHasFunctionality() {
     const sql = `
     CREATE TABLE IF NOT EXISTS roles_has_functionality (
       fk_roles INT NOT NULL,
@@ -110,7 +106,7 @@ class Tables {
       CONSTRAINT fk_roles_has_functionality_functionality1
         FOREIGN KEY (fk_functionality)
         REFERENCES functionality (id));
-    `
+    `;
     this.connection.query(sql, (err) => {
       if (err) {
         console.log(err);
@@ -118,10 +114,9 @@ class Tables {
         console.log("Table RolesHasFunctionality checked");
       }
     });
-
   }
 
-  createTableFunctionalityHasActions(){
+  createTableFunctionalityHasActions() {
     const sql = `
     CREATE TABLE IF NOT EXISTS functionality_has_actions (
       fk_functionality INT NOT NULL,
@@ -136,7 +131,7 @@ class Tables {
       CONSTRAINT fk_functionality_has_actions_actions1
         FOREIGN KEY (fk_actions)
         REFERENCES actions (id));
-    `
+    `;
     this.connection.query(sql, (err) => {
       if (err) {
         console.log(err);
@@ -144,9 +139,8 @@ class Tables {
         console.log("Table TableFunctionalityHasActions checked");
       }
     });
-
   }
-  createTablePerfil(){
+  createTablePerfil() {
     const sql = `
     CREATE TABLE IF NOT EXISTS perfil (
       id INT NOT NULL AUTO_INCREMENT,
@@ -169,9 +163,8 @@ class Tables {
         console.log("Table Perfil checked");
       }
     });
-
   }
-  createTableAdrress(){
+  createTableAdrress() {
     const sql = `
     CREATE TABLE IF NOT EXISTS adrress (
       id INT NOT NULL AUTO_INCREMENT,
@@ -189,7 +182,7 @@ class Tables {
       CONSTRAINT fk_adrress_perfil1
         FOREIGN KEY (fk_perfil)
         REFERENCES perfil (id))
-    `
+    `;
     this.connection.query(sql, (err) => {
       if (err) {
         console.log(err);
@@ -197,7 +190,6 @@ class Tables {
         console.log("Table Address checked");
       }
     });
-
   }
 }
 

@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` VARCHAR(45) NULL DEFAULT NULL,
   `password` VARCHAR(255) NOT NULL,
   `created` DATETIME NOT NULL,
-  `fk_roles` INT NOT NULL,
+  `fk_roles` INT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
   INDEX `fk_users_roles_idx` (`fk_roles` ASC) VISIBLE,
@@ -198,3 +198,9 @@ INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUE
 INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('3', '3');
 INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('3', '4');
 INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('3', '5');
+
+INSERT INTO `roles` (`name`, `description`) VALUES ('Administrador', 'Grupo para usuarios com acesso  administrativo');
+INSERT INTO `roles` (`name`, `description`) VALUES ('Vendas', 'Grupo para usarios do departaemto de vendas');
+INSERT INTO `roles` (`name`, `description`) VALUES ('Financeiro', 'Grupo para os usuarios do departamento financeiro');
+INSERT INTO `roles` (`name`, `description`) VALUES ('Master', 'Grupo para administrador geral do sistema');
+
