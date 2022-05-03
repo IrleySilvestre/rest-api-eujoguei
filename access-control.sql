@@ -177,11 +177,11 @@ INSERT INTO `functionality` (`name`, `description`) VALUES ('Controle de Usuario
 INSERT INTO `functionality` (`name`, `description`) VALUES ('Controle de Grupos de Acesso', 'Gerencia cadastro de grupos de acesso do sistema');
 INSERT INTO `functionality` (`name`, `description`) VALUES ('Controle de permissoes', 'Gerenica permicoes de acesso');
 
-INSERT INTO `actions` (`description`) VALUES ('Listar');
-INSERT INTO `actions` (`description`) VALUES ('Pesquisar');
-INSERT INTO `actions` (`description`) VALUES ('Adicionar');
-INSERT INTO `actions` (`description`) VALUES ('Atualizar');
-INSERT INTO `actions` (`description`) VALUES ('Excluir');
+INSERT INTO `actions` (`name`) VALUES ('Listar');
+INSERT INTO `actions` (`name`) VALUES ('Pesquisar');
+INSERT INTO `actions` (`name`) VALUES ('Adicionar');
+INSERT INTO `actions` (`name`) VALUES ('Atualizar');
+INSERT INTO `actions` (`name`) VALUES ('Excluir');
 
 INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('1', '1');
 INSERT INTO `functionality_has_actions` (`fk_functionality`, `fk_actions`) VALUES ('1', '2');
@@ -204,3 +204,9 @@ INSERT INTO `roles` (`name`, `description`) VALUES ('Vendas', 'Grupo para usario
 INSERT INTO `roles` (`name`, `description`) VALUES ('Financeiro', 'Grupo para os usuarios do departamento financeiro');
 INSERT INTO `roles` (`name`, `description`) VALUES ('Master', 'Grupo para administrador geral do sistema');
 
+SELECT f.name as Funcionalidade, a.name as Acao, fa.has_permition as permissao
+FROM functionality f
+INNER JOIN functionality_has_actions fa 
+ON f.id = fa.fk_functionality
+INNER JOIN actions a
+ON a.id = fa.fk_actions;
