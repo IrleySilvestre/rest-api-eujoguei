@@ -173,9 +173,9 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
-INSERT INTO `functionality` (`name`, `description`) VALUES ('Controle de Usuarios', 'Gerenica cadastro de usuarios do sistema');
-INSERT INTO `functionality` (`name`, `description`) VALUES ('Controle de Grupos de Acesso', 'Gerencia cadastro de grupos de acesso do sistema');
-INSERT INTO `functionality` (`name`, `description`) VALUES ('Controle de permissoes', 'Gerenica permicoes de acesso');
+INSERT INTO `functionality` (`name`, `description`) VALUES ('Gerenciar Usuarios', 'Gerenica cadastro de usuarios do sistema');
+INSERT INTO `functionality` (`name`, `description`) VALUES ('Gerenciar Grupos de Acesso', 'Gerencia cadastro de grupos de acesso do sistema');
+INSERT INTO `functionality` (`name`, `description`) VALUES ('Gerenciar permissoes', 'Gerenica permicoes de acesso');
 
 INSERT INTO `actions` (`name`) VALUES ('Listar');
 INSERT INTO `actions` (`name`) VALUES ('Pesquisar');

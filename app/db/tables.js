@@ -1,18 +1,18 @@
 class Tables {
-  initTables(connection) {
-    this.connection = connection;
-    this.createTableRoles();
-    this.createTableUsers();
-    this.createTableFunctionality();
-    this.createTableActions();
-    this.createTableRolesHasFunctionality();
-    this.createTableFunctionalityHasActions();
-    this.createTablePerfil();
-    this.createTableAdrress();
-  }
+    initTables(connection) {
+        this.connection = connection;
+        this.createTableRoles();
+        this.createTableUsers();
+        this.createTableFunctionality();
+        this.createTableActions();
+        this.createTableRolesHasFunctionality();
+        this.createTableFunctionalityHasActions();
+        this.createTablePerfil();
+        this.createTableAdrress();
+    }
 
-  createTableRoles() {
-    const sql = `
+    createTableRoles() {
+        const sql = `
         CREATE TABLE IF NOT EXISTS roles (
              id INT NOT NULL AUTO_INCREMENT,
               name VARCHAR(45) NOT NULL,
@@ -21,24 +21,24 @@ class Tables {
               UNIQUE INDEX id_UNIQUE (id) ,
               UNIQUE INDEX name_UNIQUE (name));
               `;
-    this.connection.query(sql, (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Table Roles checked");
-      }
-    });
-  }
+        this.connection.query(sql, (err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Table Roles checked");
+            }
+        });
+    }
 
-  createTableUsers() {
-    const sql = `
+    createTableUsers() {
+        const sql = `
     CREATE TABLE IF NOT EXISTS users (
       id INT NOT NULL AUTO_INCREMENT,
       name VARCHAR(45) NOT NULL,
       email VARCHAR(45) NULL DEFAULT NULL,
       password VARCHAR(255) NOT NULL,
       created DATETIME NOT NULL,
-      fk_roles INT NOT NULL,
+      fk_roles  NULL,
       PRIMARY KEY (id),
       UNIQUE INDEX email_UNIQUE (email),
       INDEX fk_users_roles_idx (fk_roles),
@@ -47,17 +47,17 @@ class Tables {
         REFERENCES roles (id));
 
         `;
-    this.connection.query(sql, (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Table users checked");
-      }
-    });
-  }
+        this.connection.query(sql, (err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Table users checked");
+            }
+        });
+    }
 
-  createTableFunctionality() {
-    const sql = `
+    createTableFunctionality() {
+        const sql = `
     CREATE TABLE IF NOT EXISTS functionality (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(45) NOT NULL,
@@ -66,34 +66,34 @@ class Tables {
     UNIQUE INDEX id_UNIQUE (id ) ,
     UNIQUE INDEX description_UNIQUE (name ) )
     `;
-    this.connection.query(sql, (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Table functionality checked");
-      }
-    });
-  }
+        this.connection.query(sql, (err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Table functionality checked");
+            }
+        });
+    }
 
-  createTableActions() {
-    const sql = `
+    createTableActions() {
+        const sql = `
     CREATE TABLE IF NOT EXISTS actions (
       id INT NOT NULL AUTO_INCREMENT,
       name VARCHAR(45) NOT NULL,
       PRIMARY KEY (id),
       UNIQUE INDEX name_UNIQUE (name));
     `;
-    this.connection.query(sql, (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Table Actions checked");
-      }
-    });
-  }
+        this.connection.query(sql, (err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Table Actions checked");
+            }
+        });
+    }
 
-  createTableRolesHasFunctionality() {
-    const sql = `
+    createTableRolesHasFunctionality() {
+        const sql = `
     CREATE TABLE IF NOT EXISTS roles_has_functionality (
       fk_roles INT NOT NULL,
       fk_functionality INT NOT NULL,
@@ -107,17 +107,17 @@ class Tables {
         FOREIGN KEY (fk_functionality)
         REFERENCES functionality (id));
     `;
-    this.connection.query(sql, (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Table RolesHasFunctionality checked");
-      }
-    });
-  }
+        this.connection.query(sql, (err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Table RolesHasFunctionality checked");
+            }
+        });
+    }
 
-  createTableFunctionalityHasActions() {
-    const sql = `
+    createTableFunctionalityHasActions() {
+        const sql = `
     CREATE TABLE IF NOT EXISTS functionality_has_actions (
       fk_functionality INT NOT NULL,
       fk_actions INT NOT NULL,
@@ -132,16 +132,16 @@ class Tables {
         FOREIGN KEY (fk_actions)
         REFERENCES actions (id));
     `;
-    this.connection.query(sql, (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Table TableFunctionalityHasActions checked");
-      }
-    });
-  }
-  createTablePerfil() {
-    const sql = `
+        this.connection.query(sql, (err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Table TableFunctionalityHasActions checked");
+            }
+        });
+    }
+    createTablePerfil() {
+        const sql = `
     CREATE TABLE IF NOT EXISTS perfil (
       id INT NOT NULL AUTO_INCREMENT,
       photo VARCHAR(45) NULL,
@@ -156,16 +156,16 @@ class Tables {
         FOREIGN KEY (fk_users)
         REFERENCES users (id));
     `;
-    this.connection.query(sql, (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Table Perfil checked");
-      }
-    });
-  }
-  createTableAdrress() {
-    const sql = `
+        this.connection.query(sql, (err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Table Perfil checked");
+            }
+        });
+    }
+    createTableAdrress() {
+        const sql = `
     CREATE TABLE IF NOT EXISTS adrress (
       id INT NOT NULL AUTO_INCREMENT,
       cep VARCHAR(45) NOT NULL,
@@ -183,14 +183,14 @@ class Tables {
         FOREIGN KEY (fk_perfil)
         REFERENCES perfil (id))
     `;
-    this.connection.query(sql, (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Table Address checked");
-      }
-    });
-  }
+        this.connection.query(sql, (err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Table Address checked");
+            }
+        });
+    }
 }
 
 module.exports = new Tables();
