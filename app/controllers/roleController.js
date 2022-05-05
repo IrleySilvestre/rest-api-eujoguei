@@ -53,3 +53,13 @@ exports.update = (req, res) => {
     }
   });
 };
+
+exports.listRolesPermissions = (req, res) => {
+  Role.listRolesPermissions((err, data) => {
+    if (err) {
+      res.status(500).send({ message: err.message });
+    } else {
+      res.status(200).json(data);
+    }
+  });
+};
