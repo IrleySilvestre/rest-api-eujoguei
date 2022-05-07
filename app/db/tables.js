@@ -38,7 +38,7 @@ class Tables {
       email VARCHAR(45) NULL DEFAULT NULL,
       password VARCHAR(255) NOT NULL,
       created DATETIME NOT NULL,
-      fk_roles  NULL,
+      fk_roles INT NULL DEFAULT NULL,
       PRIMARY KEY (id),
       UNIQUE INDEX email_UNIQUE (email),
       INDEX fk_users_roles_idx (fk_roles),
