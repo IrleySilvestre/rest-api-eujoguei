@@ -109,6 +109,19 @@ exports.remove = (req, res) => {
     }
   });
 };
+
+exports.findUserByRole = (req, res)=>{
+  const {id_role} =  req.params
+  User.findUserByRole(id_role, (err, data)=>{
+    if (err){
+      res.status(500);
+      res.send({ messag: err.message });
+    }else{
+      res.status(200).json(data)
+    }
+  })
+}
+
 exports.update = (req, res) => {
   const user = req.body;
   const { id } = req.params;

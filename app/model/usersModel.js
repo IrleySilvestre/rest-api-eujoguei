@@ -44,6 +44,18 @@ class User {
     });
   }
 
+  static findUserByRole(id_role, result) {
+    const sql = `SELECT * FROM users WHERE id_role=?`;
+    connection.query(sql, id_role, (err, res) => {
+      if (err) {
+        result(err, null);
+        return;
+      } else {
+        result(null, { res });
+      }
+    });
+  }
+
   static listAll(result) {
     const sql = "SELECT * FROM  users";
     connection.query(sql, (err, res) => {
@@ -55,6 +67,7 @@ class User {
       }
     });
   }
+
   static remove(id, result) {
     const sql = `DELETE  FROM users WHERE id=?`;
     connection.query(sql, id, (err, res) => {
@@ -66,6 +79,7 @@ class User {
       }
     });
   }
+
   static update(id, user, result) {
     const sql = `UPDATE users SET ? WHERE id = ?`;
 
