@@ -5,7 +5,7 @@ class User {
     this.email = user.email;
     this.password = user.password;
     this.created = user.created;
-    this.fk_roles = user.fk_roles
+    this.id_role = user.id_roles
   }
   static add(newUser, result) {
     const sql = "INSERT INTO users SET ?";
@@ -56,16 +56,29 @@ class User {
     });
   }
 
-  static listAll(result) {
-    const sql = "SELECT * FROM  users";
-    connection.query(sql, (err, res) => {
-      if (err) {
-        result(err, null);
-        return;
-      } else {
-        result(null, { res });
-      }
-    });
+  static listAll(notrole, result) {
+    const nouserrole = notrole.notrole;
+    if(nouserrole){
+      const sql = "SELECT * FROM  users WHERE id_role IS NULL";
+      connection.query(sql, (err, res) => {
+        if (err) {
+          result(err, null);
+          return;
+        } else {
+          result(null, { res });
+        }
+      });
+    }else{
+      const sql = "SELECT * FROM  users";
+      connection.query(sql, (err, res) => {
+        if (err) {
+          result(err, null);
+          return;
+        } else {
+          result(null, { res });
+        }
+      });
+    }
   }
 
   static remove(id, result) {

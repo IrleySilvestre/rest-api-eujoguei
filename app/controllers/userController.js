@@ -79,13 +79,24 @@ exports.add = (req, res) => {
 };
 
 exports.listAll = (req, res) => {
-  User.listAll((err, data) => {
-    if (err) {
-      res.status(500).send({ messag: err.message });
-    } else {
-      res.status(200).json(data);
-    }
-  });
+  const notrole = req.params
+  if(notrole){
+    User.listAll(notrole, (err, data) => {
+      if (err) {
+        res.status(500).send({ messag: err.message });
+      } else {
+        res.status(200).json(data);
+      }
+    });
+  }else{
+    User.listAll((err, data) => {
+      if (err) {
+        res.status(500).send({ messag: err.message });
+      } else {
+        res.status(200).json(data);
+      }
+    });
+  }
 };
 
 exports.findById = (req, res) => {
@@ -125,6 +136,8 @@ exports.findUserByRole = (req, res)=>{
 exports.update = (req, res) => {
   const user = req.body;
   const { id } = req.params;
+  const created = moment().format("YYYY-MM-DD HH:MM:ss");
+  user.created = created;
   User.update(id, user, (err, data) => {
     if (err) {
       res.status(500);
