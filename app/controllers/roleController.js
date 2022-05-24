@@ -55,7 +55,7 @@ exports.update = (req, res) => {
 };
 
 exports.listRolesPermissions = (req, res) => {
-  Role.listRolesPermissions((err, data) => {
+  Role.listRolesPermissions(req.params.id, (err, data) => {
     if (err) {
       res.status(500).send({ message: err.message });
     } else {

@@ -65,21 +65,45 @@ class Roles {
     });
   }
 
-  static listRolesPermissions(result) {
-    const sql = `
-        SELECT f.name as funcionalidade, a.name as acao, fa.has_permition as permissao
-            FROM functionality f
+  static listRolesPermissions(id, result) {
+    if (!id) {
+      const sql = `
+        SELECT f.id as idFuncionalidade, f.name as funcionalidade, a.id as idAcao, a.name as acao, fa.has_permition as permissao, r.id as idRole,  r.name as role
+          FROM functionality f
             INNER JOIN functionality_has_actions fa 
-                ON f.id = fa.fk_functionality
+              ON f.id = fa.id_functionality
             INNER JOIN actions a
-                ON a.id = fa.fk_actions;`;
-    connection.query(sql, (err, res) => {
-      if (err) {
-        result(err, null);
-      } else {
-        result(null, { res });
-      }
-    });
+              ON a.id = fa.id_action
+            INNER JOIN roles r
+              on r.id = fa.id_role;
+          `;
+      connection.query(sql, (err, res) => {
+        if (err) {
+          result(err, null);
+        } else {
+          result(null, { res });
+        }
+      });
+    } else {
+      const sql = `
+        SELECT f.id as idFuncionalidade, f.name as funcionalidade, a.id as idAcao, a.name as acao, fa.has_permition as permissao, r.id as idRole,  r.name as role
+          FROM functionality f
+            INNER JOIN functionality_has_actions fa 
+              ON f.id = fa.id_functionality
+            INNER JOIN actions a
+              ON a.id = fa.id_action
+            INNER JOIN roles r
+              on r.id = fa.id_role
+          where r.id = ?;
+          `;
+      connection.query(sql, id, (err, res) => {
+        if (err) {
+          result(err, null);
+        } else {
+          result(null, { res });
+        }
+      });
+    }
   }
 }
 

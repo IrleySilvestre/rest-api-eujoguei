@@ -120,6 +120,26 @@ CREATE TABLE IF NOT EXISTS `api-eujoguei`.`users_roles` (
 ENGINE = InnoDB;
 
 
+CREATE TABLE IF NOT EXISTS `roles_has_functionality` (
+  `id_role` INT NOT NULL,
+  `id_functionality` INT NOT NULL,
+  PRIMARY KEY (`id_role`, `id_functionality`),
+  INDEX `fk_roles_has_functionality_functionality1_idx` (`id_functionality` ),
+  INDEX `fk_roles_has_functionality_roles1_idx` (`id_role` ),
+  CONSTRAINT `fk_roles_has_functionality_roles1`
+    FOREIGN KEY (`id_role`)
+    REFERENCES `roles` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_roles_has_functionality_functionality1`
+    FOREIGN KEY (`id_functionality`)
+    REFERENCES `functionality` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
