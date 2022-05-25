@@ -8,6 +8,7 @@ module.exports = (app) => {
     .get("/permissions/:id?", roleController.listRolesPermissions)
     .get("/:id", roleController.findById)
     .patch("/:id", roleController.update)
+    .put("/permissions/", roleController.updatePermissions)
     .delete("/:id", roleController.remove);
 
   app.use("/role", router);

@@ -63,3 +63,23 @@ exports.listRolesPermissions = (req, res) => {
     }
   });
 };
+
+exports.updatePermissions = (req, res) => {
+  const { permition } = req.query;
+  const { idRole } = req.query;
+  const { idAction } = req.query;
+  const { idFunctionality } = req.query;
+  Role.updatePermissions(
+    permition,
+    idRole,
+    idAction,
+    idFunctionality,
+    (err, data) => {
+      if (err) {
+        res.status(500).send({ message: err.message });
+      } else {
+        res.status(200).json(data);
+      }
+    }
+  );
+};

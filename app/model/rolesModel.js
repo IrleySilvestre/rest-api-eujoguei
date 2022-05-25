@@ -65,6 +65,35 @@ class Roles {
     });
   }
 
+  static updatePermissions(
+    permition,
+    idRole,
+    idAction,
+    idFunctionality,
+    result
+  ) {
+    const sql = `
+    UPDATE functionality_has_actions 
+    SET has_permition = ? 
+    WHERE 
+      id_role=? AND 
+      id_action=? AND 
+      id_functionality=?
+    `;
+    connection.query(
+      sql,
+      [permition, idRole, idAction, idFunctionality],
+      (err, res) => {
+        if (err) {
+          result(err, null);
+          return;
+        } else {
+          result(null, { res });
+        }
+      }
+    );
+  }
+
   static listRolesPermissions(id, result) {
     if (!id) {
       const sql = `
@@ -77,6 +106,7 @@ class Roles {
             INNER JOIN roles r
               on r.id = fa.id_role;
           `;
+
       connection.query(sql, (err, res) => {
         if (err) {
           result(err, null);
