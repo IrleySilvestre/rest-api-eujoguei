@@ -80,6 +80,7 @@ class Roles {
       id_action=? AND 
       id_functionality=?
     `;
+
     connection.query(
       sql,
       [permition, idRole, idAction, idFunctionality],
