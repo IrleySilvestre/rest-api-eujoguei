@@ -199,6 +199,54 @@ INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_pe
 INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('3', '4', '1', '4');
 INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('3', '5', '1', '4');
 
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('1', '1', '1', '3');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('1', '2', '1', '3');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('1', '3', '1', '3');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('1', '4', '1', '3');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('1', '5', '1', '3');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('2', '1', '1', '3');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('2', '2', '1', '3');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('2', '3', '1', '3');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('2', '4', '1', '3');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('2', '5', '1', '3');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('3', '1', '1', '3');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('3', '2', '1', '3');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('3', '3', '1', '3');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('3', '4', '1', '3');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('3', '5', '1', '3');
+
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('1', '1', '1', '2');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('1', '2', '1', '2');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('1', '3', '1', '2');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('1', '4', '1', '2');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('1', '5', '1', '2');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('2', '1', '1', '2');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('2', '2', '1', '2');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('2', '3', '1', '2');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('2', '4', '1', '2');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('2', '5', '1', '2');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('3', '1', '1', '2');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('3', '2', '1', '2');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('3', '3', '1', '2');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('3', '4', '1', '2');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('3', '5', '1', '2');
+
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('1', '1', '1', '1');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('1', '2', '1', '1');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('1', '3', '1', '1');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('1', '4', '1', '1');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('1', '5', '1', '1');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('2', '1', '1', '1');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('2', '2', '1', '1');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('2', '3', '1', '1');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('2', '4', '1', '1');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('2', '5', '1', '1');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('3', '1', '1', '1');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('3', '2', '1', '1');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('3', '3', '1', '1');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('3', '4', '1', '1');
+INSERT INTO `functionality_has_actions` (`id_functionality`, `id_action`,`has_permition`, `id_role`) VALUES ('3', '5', '1', '1');
+
 INSERT INTO `roles` (`name`, `description`) VALUES ('Administrador', 'Grupo para usuarios com acesso  administrativo');
 INSERT INTO `roles` (`name`, `description`) VALUES ('Vendas', 'Grupo para usarios do departaemto de vendas');
 INSERT INTO `roles` (`name`, `description`) VALUES ('Financeiro', 'Grupo para os usuarios do departamento financeiro');
